@@ -406,7 +406,7 @@
     const val = input.value.trim();
     if (!val) {
       input.classList.remove('valid','invalid');
-      hint.textContent = 'Format: 0x diikuti 45 karakter hex.';
+      hint.textContent = 'Format: 0x diikuti 60 karakter hex.';
       hint.className = 'field-hint';
       return false;
     }
@@ -417,7 +417,7 @@
       return true;
     } else {
       input.classList.add('invalid'); input.classList.remove('valid');
-      hint.textContent = '❌ Alamat tidak valid. Harus 0x + 45 karakter hex.';
+      hint.textContent = '❌ Alamat tidak valid. Harus 0x + 60 karakter hex.';
       hint.className = 'field-hint error';
       return false;
     }
