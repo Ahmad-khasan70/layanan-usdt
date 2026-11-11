@@ -1,0 +1,5 @@
+Item,Lokasi,Keterangan
+WA_NUMBER,baris ~const WA_NUMBER & tombol WA,nomor admin (62xxx)
+flyer1.jpg dll,tag <img> galeri,file gambar flyer
+Logo 💎,"<div class=""logo"">","bisa diganti <img src=""logo.png"">"
+Kurs default,"value=""16000""",sesuaikan kurs Anda
