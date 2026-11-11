@@ -7,265 +7,88 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   :root[data-theme="dark"] {
-    --primary: #0ea5e9;
-    --primary-dark: #0284c7;
-    --bg: #0a0f1e;
-    --card: rgba(30, 41, 59, 0.7);
-    --border: rgba(148, 163, 184, 0.2);
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --input-bg: rgba(10, 15, 30, 0.8);
-    --green: #25D366;
-    --success: #10b981;
-    --error: #ef4444;
-    --shadow: rgba(0,0,0,0.4);
+    --primary: #0ea5e9; --primary-dark: #0284c7; --bg: #0a0f1e;
+    --card: rgba(30, 41, 59, 0.7); --border: rgba(148, 163, 184, 0.2);
+    --text: #e2e8f0; --muted: #94a3b8; --input-bg: rgba(10, 15, 30, 0.8);
+    --green: #25D366; --success: #10b981; --error: #ef4444; --shadow: rgba(0,0,0,0.4);
   }
   :root[data-theme="light"] {
-    --primary: #0284c7;
-    --primary-dark: #0369a1;
-    --bg: #f1f5f9;
-    --card: rgba(255, 255, 255, 0.85);
-    --border: rgba(100, 116, 139, 0.25);
-    --text: #0f172a;
-    --muted: #64748b;
-    --input-bg: #ffffff;
-    --green: #16a34a;
-    --success: #059669;
-    --error: #dc2626;
-    --shadow: rgba(0,0,0,0.1);
+    --primary: #0284c7; --primary-dark: #0369a1; --bg: #f1f5f9;
+    --card: rgba(255, 255, 255, 0.85); --border: rgba(100, 116, 139, 0.25);
+    --text: #0f172a; --muted: #64748b; --input-bg: #ffffff;
+    --green: #16a34a; --success: #059669; --error: #dc2626; --shadow: rgba(0,0,0,0.1);
   }
-
   body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    min-height: 100vh;
+    background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh;
     transition: background 0.3s, color 0.3s;
-    background-image:
-      radial-gradient(circle at 20% 10%, rgba(14,165,233,0.15), transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(37,211,102,0.1), transparent 40%);
+    background-image: radial-gradient(circle at 20% 10%, rgba(14,165,233,0.15), transparent 40%), radial-gradient(circle at 80% 80%, rgba(37,211,102,0.1), transparent 40%);
     background-attachment: fixed;
   }
-
-  /* ===== HEADER ===== */
   header { padding: 60px 20px 40px; text-align: center; position: relative; }
-  .top-bar {
-    position: fixed; top: 16px; right: 16px;
-    display: flex; gap: 8px; z-index: 100;
-  }
-  .icon-btn {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: var(--card);
-    backdrop-filter: blur(10px);
-    color: var(--text);
-    font-size: 20px;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s;
-  }
+  .top-bar { position: fixed; top: 16px; right: 16px; display: flex; gap: 8px; z-index: 100; }
+  .icon-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); backdrop-filter: blur(10px); color: var(--text); font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
   .icon-btn:hover { transform: scale(1.1); border-color: var(--primary); }
-
-  .logo {
-    width: 70px; height: 70px;
-    margin: 0 auto 20px;
-    background: linear-gradient(135deg, #0ea5e9, #25D366);
-    border-radius: 20px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 34px;
-    box-shadow: 0 8px 30px rgba(14,165,233,0.4);
-    animation: float 3s ease-in-out infinite;
-  }
-  @keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-  header h1 {
-    font-size: clamp(24px, 4vw, 38px);
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--text), var(--primary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 12px;
-  }
+  .logo { width: 70px; height: 70px; margin: 0 auto 20px; background: linear-gradient(135deg, #0ea5e9, #25D366); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 34px; box-shadow: 0 8px 30px rgba(14,165,233,0.4); animation: float 3s ease-in-out infinite; }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  header h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 800; background: linear-gradient(135deg, var(--text), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 12px; }
   header p { font-size: 16px; color: var(--muted); max-width: 500px; margin: 0 auto; }
-
-  /* ===== CONTAINER ===== */
   .container { max-width: 900px; margin: 0 auto; padding: 0 20px 40px; }
-
-  /* ===== BADGES ===== */
   .badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 25px 0 40px; }
-  .badge {
-    padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600;
-    background: var(--card); border: 1px solid var(--border); backdrop-filter: blur(10px);
-  }
-  .badge .dot {
-    display: inline-block; width: 8px; height: 8px; border-radius: 50%;
-    background: var(--success); margin-right: 6px; animation: pulse 2s infinite;
-  }
+  .badge { padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; background: var(--card); border: 1px solid var(--border); backdrop-filter: blur(10px); }
+  .badge .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--success); margin-right: 6px; animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
-
   h2 { font-size: 20px; margin: 40px 0 18px; display: flex; align-items: center; gap: 10px; }
-  h2::before {
-    content: ''; width: 4px; height: 22px;
-    background: linear-gradient(180deg, var(--primary), var(--green));
-    border-radius: 2px;
-  }
-
-  /* ===== GALLERY ===== */
+  h2::before { content: ''; width: 4px; height: 22px; background: linear-gradient(180deg, var(--primary), var(--green)); border-radius: 2px; }
   .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-  .gallery img {
-    width: 100%; border-radius: 14px; border: 1px solid var(--border);
-    cursor: pointer; transition: all 0.3s ease; background: var(--card);
-  }
-  .gallery img:hover {
-    transform: translateY(-5px) scale(1.02); border-color: var(--primary);
-    box-shadow: 0 10px 30px rgba(14,165,233,0.25);
-  }
-
-  /* ===== WA BUTTON ===== */
-  .wa-btn {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    background: linear-gradient(135deg, #25D366, #1ebe5a);
-    color: #fff; padding: 16px 28px; border-radius: 14px;
-    text-decoration: none; font-weight: 700; font-size: 16px; margin: 20px 0;
-    box-shadow: 0 8px 24px rgba(37,211,102,0.35);
-    transition: all 0.25s ease;
-  }
+  .gallery img { width: 100%; border-radius: 14px; border: 1px solid var(--border); cursor: pointer; transition: all 0.3s ease; background: var(--card); }
+  .gallery img:hover { transform: translateY(-5px) scale(1.02); border-color: var(--primary); box-shadow: 0 10px 30px rgba(14,165,233,0.25); }
+  .wa-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, #25D366, #1ebe5a); color: #fff; padding: 16px 28px; border-radius: 14px; text-decoration: none; font-weight: 700; font-size: 16px; margin: 20px 0; box-shadow: 0 8px 24px rgba(37,211,102,0.35); transition: all 0.25s ease; }
   .wa-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,0.5); }
-
-  /* ===== FORM ===== */
-  form {
-    background: var(--card); backdrop-filter: blur(14px); padding: 28px;
-    border-radius: 18px; border: 1px solid var(--border);
-    box-shadow: 0 20px 50px var(--shadow);
-  }
+  form { background: var(--card); backdrop-filter: blur(14px); padding: 28px; border-radius: 18px; border: 1px solid var(--border); box-shadow: 0 20px 50px var(--shadow); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
   @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
-
-  label {
-    display: block; margin-top: 18px; margin-bottom: 6px;
-    font-size: 13px; color: var(--muted); font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.5px;
-  }
-  input, select {
-    width: 100%; padding: 13px 15px; border-radius: 10px;
-    border: 1px solid var(--border); background: var(--input-bg);
-    color: var(--text); font-size: 15px; transition: all 0.2s; font-family: inherit;
-  }
-  input:focus, select:focus {
-    outline: none; border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(14,165,233,0.2);
-  }
+  label { display: block; margin-top: 18px; margin-bottom: 6px; font-size: 13px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  input, select { width: 100%; padding: 13px 15px; border-radius: 10px; border: 1px solid var(--border); background: var(--input-bg); color: var(--text); font-size: 15px; transition: all 0.2s; font-family: inherit; }
+  input:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(14,165,233,0.2); }
   input.invalid { border-color: var(--error); }
   input.valid { border-color: var(--success); }
-
   .field-hint { font-size: 12px; margin-top: 5px; color: var(--muted); }
   .field-hint.error { color: var(--error); }
   .field-hint.ok { color: var(--success); }
-
-  /* ===== CALCULATOR ===== */
-  .calc-box {
-    background: rgba(14,165,233,0.08); border: 1px dashed rgba(14,165,233,0.4);
-    border-radius: 12px; padding: 16px; margin-top: 18px;
-  }
-  .calc-box .result {
-    display: flex; justify-content: space-between; align-items: center; margin-top: 10px; font-size: 16px;
-  }
+  .calc-box { background: rgba(14,165,233,0.08); border: 1px dashed rgba(14,165,233,0.4); border-radius: 12px; padding: 16px; margin-top: 18px; }
+  .calc-box .result { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; font-size: 16px; }
   .calc-box .result strong { font-size: 20px; color: var(--primary); }
-
-  /* ===== QR CODE ===== */
-  .qr-box {
-    background: rgba(37,211,102,0.08); border: 1px dashed rgba(37,211,102,0.4);
-    border-radius: 12px; padding: 20px; margin-top: 18px; text-align: center;
-    display: none;
-  }
+  .qr-box { background: rgba(37,211,102,0.08); border: 1px dashed rgba(37,211,102,0.4); border-radius: 12px; padding: 20px; margin-top: 18px; text-align: center; display: none; }
   .qr-box.active { display: block; }
-  .qr-box img {
-    width: 200px; height: 200px; border-radius: 10px; background: #fff; padding: 8px;
-    margin: 10px auto;
-    display: block;
-  }
+  .qr-box img { width: 200px; height: 200px; border-radius: 10px; background: #fff; padding: 8px; margin: 10px auto; display: block; }
   .qr-box .qr-text { font-size: 13px; color: var(--muted); margin-top: 8px; }
-
-  /* ===== SUBMIT ===== */
-  button[type="submit"] {
-    margin-top: 24px; width: 100%; padding: 16px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: #fff; border: none; border-radius: 12px;
-    font-size: 16px; font-weight: 700; cursor: pointer;
-    transition: all 0.25s; box-shadow: 0 8px 24px rgba(14,165,233,0.3);
-  }
+  button[type="submit"] { margin-top: 24px; width: 100%; padding: 16px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; border: none; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.25s; box-shadow: 0 8px 24px rgba(14,165,233,0.3); }
   button[type="submit"]:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(14,165,233,0.5); }
-
   .note { font-size: 12px; color: var(--muted); margin-top: 12px; text-align: center; }
-
-  /* ===== SHARE BUTTONS ===== */
-  .share-row {
-    display: flex; gap: 12px; justify-content: center; margin-top: 20px; flex-wrap: wrap;
-  }
-  .share-btn {
-    display: flex; align-items: center; gap: 8px;
-    padding: 12px 20px; border-radius: 12px;
-    border: none; cursor: pointer;
-    font-size: 14px; font-weight: 600; font-family: inherit;
-    text-decoration: none; color: #fff;
-    transition: all 0.2s;
-  }
+  .share-row { display: flex; gap: 12px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+  .share-btn { display: flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 12px; border: none; cursor: pointer; font-size: 14px; font-weight: 600; font-family: inherit; text-decoration: none; color: #fff; transition: all 0.2s; }
   .share-btn:hover { transform: translateY(-2px); }
   .share-tg { background: linear-gradient(135deg, #229ED9, #0088cc); }
   .share-wa { background: linear-gradient(135deg, #25D366, #1ebe5a); }
-
-  /* ===== RIWAYAT ===== */
   .history-list { display: flex; flex-direction: column; gap: 12px; }
-  .history-item {
-    background: var(--card); backdrop-filter: blur(10px);
-    border: 1px solid var(--border); border-radius: 12px; padding: 16px;
-    display: flex; justify-content: space-between; align-items: center; gap: 12px;
-    animation: slideIn 0.4s ease;
-  }
-  @keyframes slideIn {
-    from { opacity: 0; transform: translateX(-20px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
+  .history-item { background: var(--card); backdrop-filter: blur(10px); border: 1px solid var(--border); border-radius: 12px; padding: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; animation: slideIn 0.4s ease; }
+  @keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
   .history-item .info { flex: 1; min-width: 0; }
   .history-item .name { font-weight: 700; margin-bottom: 4px; }
   .history-item .meta { font-size: 12px; color: var(--muted); word-break: break-all; }
   .history-item .amount { font-weight: 700; color: var(--primary); white-space: nowrap; }
-  .history-empty {
-    text-align: center; padding: 30px; color: var(--muted);
-    border: 1px dashed var(--border); border-radius: 12px;
-  }
-  .clear-btn {
-    background: none; border: 1px solid var(--error); color: var(--error);
-    padding: 8px 16px; border-radius: 8px; font-size: 13px; cursor: pointer;
-    margin-top: 12px; font-weight: 600;
-  }
+  .history-empty { text-align: center; padding: 30px; color: var(--muted); border: 1px dashed var(--border); border-radius: 12px; }
+  .clear-btn { background: none; border: 1px solid var(--error); color: var(--error); padding: 8px 16px; border-radius: 8px; font-size: 13px; cursor: pointer; margin-top: 12px; font-weight: 600; }
   .clear-btn:hover { background: var(--error); color: #fff; }
-
-  footer {
-    text-align: center; padding: 30px 20px; color: var(--muted);
-    font-size: 13px; border-top: 1px solid var(--border); margin-top: 40px;
-  }
-
-  /* ===== TOAST ===== */
-  .toast {
-    position: fixed; bottom: 30px; left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: var(--success); color: #fff; padding: 14px 24px;
-    border-radius: 12px; font-weight: 600; box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-    transition: transform 0.4s ease; z-index: 999;
-  }
+  footer { text-align: center; padding: 30px 20px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 40px; }
+  .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--success); color: #fff; padding: 14px 24px; border-radius: 12px; font-weight: 600; box-shadow: 0 8px 30px rgba(0,0,0,0.4); transition: transform 0.4s ease; z-index: 999; }
   .toast.show { transform: translateX(-50%) translateY(0); }
   .toast.error { background: var(--error); }
 </style>
 </head>
 <body>
 
-<!-- Top bar: tema & share -->
 <div class="top-bar">
   <button class="icon-btn" id="themeToggle" title="Ganti Tema">🌙</button>
 </div>
@@ -274,6 +97,267 @@
   <div class="logo">💎</div>
   <h1>Layanan USDT & USDA+</h1>
   <p>Beli & tukar USDT / USDA+ dengan Rupiah atau jaringan BSC — cepat, aman, terpercaya.</p>
+  <div class="badges">
+    <span class="badge"><span class="dot"></span>Online 24/7</span>
+    <span class="badge">🔒 Aman & Terverifikasi</span>
+    <span class="badge">⚡ Proses Cepat</span>
+    <span class="badge">💬 Support WA</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <a class="wa-btn" href="https://wa.me/628XXXXXXXXXX?text=Halo%2C%20saya%20mau%20konsultasi%20USDT%20%2F%20USDA%2B" target="_blank">
+    💬 Konsultasi via WhatsApp
+  </a>
+
+  <h2>Pengumuman & Flyer</h2>
+  <div class="gallery">
+    <img src="flyer1.jpg" alt="Flyer 1" onclick="window.open(this.src)" onerror="this.style.display='none'">
+    <img src="flyer2.jpg" alt="Flyer 2" onclick="window.open(this.src)" onerror="this.style.display='none'">
+    <img src="flyer3.jpg" alt="Flyer 3" onclick="window.open(this.src)" onerror="this.style.display='none'">
+  </div>
+
+  <h2>Formulir Pembelian</h2>
+  <form id="orderForm" novalidate>
+
+    <div class="form-row">
+      <div>
+        <label>Nama Lengkap</label>
+        <input type="text" id="nama" required placeholder="Contoh: Budi Santoso">
+      </div>
+      <div>
+        <label>Username</label>
+        <input type="text" id="username" required placeholder="Contoh: budi123">
+      </div>
+    </div>
+
+    <label>Rekening USDT (Jaringan BSC)</label>
+    <input type="text" id="rekUsdt" required placeholder="0x... (42 karakter)" maxlength="42">
+    <div class="field-hint" id="hintUsdt">Format: 0x diikuti 40 karakter hex.</div>
+
+    <label>Rekening USDT+</label>
+    <input type="text" id="rekUsdtPlus" required placeholder="Masukkan ID / Rekening USDT+">
+    <div class="field-hint" id="hintUsdtPlus">Masukkan ID / Rekening USDT+ Anda.</div>
+
+    <label>Metode Pembayaran</label>
+    <select id="metode">
+      <option value="Rupiah">Rupiah (Transfer Bank / QRIS)</option>
+      <option value="USDT BSC">USDT (Jaringan BSC)</option>
+    </select>
+
+    <div class="calc-box">
+      <label style="margin-top:0;">Jumlah USDT yang Dibeli</label>
+      <input type="number" id="jumlahUsdt" min="1" step="0.01" placeholder="Contoh: 100" value="100">
+
+      <label>Kurs (1 USDT = Rp)</label>
+      <input type="number" id="kurs" min="1" step="1" value="16000">
+
+      <div class="result">
+        <span>Total Bayar:</span>
+        <strong id="totalRp">Rp 1.600.000</strong>
+      </div>
+    </div>
+
+    <div class="qr-box" id="qrBox">
+      <div style="font-weight:700; margin-bottom:8px;">📱 Scan QRIS untuk Bayar</div>
+      <img id="qrImg" src="" alt="QR Code Pembayaran">
+      <div class="qr-text">Nominal otomatis mengikuti total di atas.</div>
+    </div>
+
+    <button type="submit" id="submitBtn">🚀 Kirim ke WhatsApp</button>
+    <p class="note">Data akan otomatis dikirim ke WhatsApp admin untuk diproses.</p>
+  </form>
+
+  <h2>Bagikan Halaman Ini</h2>
+  <div class="share-row">
+    <a class="share-btn share-tg" id="shareTg" href="#" target="_blank">✈️ Share ke Telegram</a>
+    <a class="share-btn share-wa" id="shareWa" href="#" target="_blank">💬 Share ke WhatsApp</a>
+  </div>
+
+  <h2>Riwayat Order Anda</h2>
+  <div id="historyList" class="history-list">
+    <div class="history-empty">Belum ada riwayat order.</div>
+  </div>
+  <button class="clear-btn" id="clearHistory" style="display:none;">🗑️ Hapus Riwayat</button>
+
+</div>
+
+<footer>
+  © 2026 Layanan USDT & USDA+ — Gunakan dengan bijak.<br>
+  Pastikan transaksi sesuai regulasi yang berlaku.
+</footer>
+
+<div class="toast" id="toast">✅ Membuka WhatsApp...</div>
+
+<script>
+  const WA_NUMBER = "628XXXXXXXXXX"; // GANTI nomor admin
+  const BSC_REGEX = /^0x[a-fA-F0-9]{40}$/;
+  const STORAGE_KEY = "orderHistory";
+  const THEME_KEY = "theme";
+
+  const $ = (id) => document.getElementById(id);
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    $('themeToggle').textContent = theme === 'dark' ? '🌙' : '☀️';
+    localStorage.setItem(THEME_KEY, theme);
+  }
+  $('themeToggle').addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+  applyTheme(localStorage.getItem(THEME_KEY) || 'dark');
+
+  function validateWallet(input, hint) {
+    const val = input.value.trim();
+    if (!val) {
+      input.classList.remove('valid','invalid');
+      hint.textContent = 'Format: 0x diikuti 40 karakter hex.';
+      hint.className = 'field-hint';
+      return false;
+    }
+    if (BSC_REGEX.test(val)) {
+      input.classList.add('valid'); input.classList.remove('invalid');
+      hint.textContent = '✅ Alamat wallet valid.';
+      hint.className = 'field-hint ok';
+      return true;
+    } else {
+      input.classList.add('invalid'); input.classList.remove('valid');
+      hint.textContent = '❌ Alamat tidak valid. Harus 0x + 40 karakter hex.';
+      hint.className = 'field-hint error';
+      return false;
+    }
+  }
+  $('rekUsdt').addEventListener('input', () => validateWallet($('rekUsdt'), $('hintUsdt')));
+  // Validasi khusus USDT+ dihilangkan karena formatnya berbeda
+  
+  function hitungTotal() {
+    const jumlah = parseFloat($('jumlahUsdt').value) || 0;
+    const kurs = parseFloat($('kurs').value) || 0;
+    const total = jumlah * kurs;
+    $('totalRp').textContent = 'Rp ' + total.toLocaleString('id-ID');
+    updateQR(total);
+  }
+  function updateQR(total) {
+    const metode = $('metode').value;
+    const qrBox = $('qrBox');
+    if (metode === 'Rupiah' && total > 0) {
+      qrBox.classList.add('active');
+      const qrData = encodeURIComponent(`Pembayaran USDT - Rp ${total.toLocaleString('id-ID')}`);
+      $('qrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrData}`;
+    } else {
+      qrBox.classList.remove('active');
+    }
+  }
+  $('jumlahUsdt').addEventListener('input', hitungTotal);
+  $('kurs').addEventListener('input', hitungTotal);
+  $('metode').addEventListener('change', hitungTotal);
+  hitungTotal();
+
+  function showToast(msg, isError = false) {
+    const t = $('toast');
+    t.textContent = msg;
+    t.className = 'toast' + (isError ? ' error' : '');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  function loadHistory() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch { return []; }
+  }
+  function saveHistory(list) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  }
+  function renderHistory() {
+    const list = loadHistory();
+    const container = $('historyList');
+    const clearBtn = $('clearHistory');
+    if (list.length === 0) {
+      container.innerHTML = '<div class="history-empty">Belum ada riwayat order.</div>';
+      clearBtn.style.display = 'none';
+      return;
+    }
+    clearBtn.style.display = 'inline-block';
+    container.innerHTML = list.map(item => `
+      <div class="history-item">
+        <div class="info">
+          <div class="name">${escapeHtml(item.nama)}</div>
+          <div class="meta">
+            ${item.jumlah} USDT × Rp ${Number(item.kurs).toLocaleString('id-ID')}<br>
+            ${new Date(item.tanggal).toLocaleString('id-ID')}
+          </div>
+        </div>
+        <div class="amount">Rp ${Number(item.total).toLocaleString('id-ID')}</div>
+      </div>
+    `).join('');
+  }
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, s => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[s]));
+  }
+  $('clearHistory').addEventListener('click', () => {
+    if (confirm('Hapus semua riwayat order?')) {
+      localStorage.removeItem(STORAGE_KEY);
+      renderHistory();
+      showToast('🗑️ Riwayat dihapus');
+    }
+  });
+  renderHistory();
+
+  function setupShare() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent("Cek layanan USDT & USDA+ terpercaya di sini!");
+    $('shareTg').href = `https://t.me/share/url?url=${url}&text=${text}`;
+    $('shareWa').href = `https://wa.me/?text=${text}%20${url}`;
+  }
+  setupShare();
+
+  $('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const nama = $('nama').value.trim();
+    const username = $('username').value.trim();
+    const rekUsdt = $('rekUsdt').value.trim();
+    const rekPlus = $('rekUsdtPlus').value.trim();
+    const metode = $('metode').value;
+    const jumlah = parseFloat($('jumlahUsdt').value) || 0;
+    const kurs = parseFloat($('kurs').value) || 0;
+    const total = jumlah * kurs;
+
+    if (!nama || !username) return showToast('❌ Nama & Username wajib diisi', true);
+    if (!BSC_REGEX.test(rekUsdt)) return showToast('❌ Rekening USDT tidak valid', true);
+    if (rekPlus.length < 10) return showToast('❌ Rekening USDT+ terlalu pendek / kosong', true);
+    if (jumlah <= 0 || kurs <= 0) return showToast('❌ Jumlah & kurs harus > 0', true);
+
+    const history = loadHistory();
+    history.unshift({ nama, username, rekUsdt, rekPlus, metode, jumlah, kurs, total, tanggal: new Date().toISOString() });
+    saveHistory(history.slice(0, 20));
+    renderHistory();
+
+    const pesan =
+      "*📋 FORMULIR PEMBELIAN USDT/USDA+*%0A" +
+      "━━━━━━━━━━━━━━━━━━%0A" +
+      "*Nama:* " + encodeURIComponent(nama) + "%0A" +
+      "*Username:* " + encodeURIComponent(username) + "%0A" +
+      "*Rekening USDT:*%0A" + encodeURIComponent(rekUsdt) + "%0A" +
+      "*Rekening USDT+:*%0A" + encodeURIComponent(rekPlus) + "%0A" +
+      "━━━━━━━━━━━━━━━━━━%0A" +
+      "*Jumlah USDT:* " + jumlah + "%0A" +
+      "*Kurs:* Rp " + kurs.toLocaleString('id-ID') + " / USDT%0A" +
+      "*Total Bayar:* Rp " + total.toLocaleString('id-ID') + "%0A" +
+      "*Metode:* " + encodeURIComponent(metode) + "%0A" +
+      "━━━━━━━━━━━━━━━━━━%0A" +
+      "Mohon diproses. Terima kasih 🙏";
+
+    showToast('✅ Membuka WhatsApp...');
+    setTimeout(() => {
+      window.open("https://wa.me/" + WA_NUMBER + "?text=" + pesan, "_blank");
+    }, 300);
+  });
+</script>
+
+</body>
+</html>/ USDA+ dengan Rupiah atau jaringan BSC — cepat, aman, terpercaya.</p>
   <div class="badges">
     <span class="badge"><span class="dot"></span>Online 24/7</span>
     <span class="badge">🔒 Aman & Terverifikasi</span>
@@ -528,7 +612,7 @@
     const total = jumlah * kurs;
 
     if (!nama || !username) return showToast('❌ Nama & Username wajib diisi', true);
-    if (!BSC_REGEX.test(rekUsdt)) return showToast('❌ Rekening USDT tidak valid', true);
+if (rekPlus.length < 10) return showToast('❌ Rekening USDT+ terlalu pendek', true);
     if (!BSC_REGEX.test(rekPlus)) return showToast('❌ Rekening USDT+ tidak valid', true);
     if (jumlah <= 0 || kurs <= 0) return showToast('❌ Jumlah & kurs harus > 0', true);
 
