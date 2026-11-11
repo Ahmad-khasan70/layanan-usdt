@@ -317,7 +317,7 @@
     <div class="field-hint" id="hintUsdt">Format: 0x diikuti 40 karakter hex.</div>
 
     <label>Rekening USDT+</label>
-    <input type="text" id="rekUsdtPlus" required placeholder="0x... (42 karakter)" maxlength="42">
+    <input type="text" id="rekUsdtPlus" required placeholder="0x... (40 karakter)" maxlength="40">
     <div class="field-hint" id="hintUsdtPlus">Format: 0x diikuti 40 karakter hex.</div>
 
     <label>Metode Pembayaran</label>
@@ -406,7 +406,7 @@
     const val = input.value.trim();
     if (!val) {
       input.classList.remove('valid','invalid');
-      hint.textContent = 'Format: 0x diikuti 30 karakter hex.';
+      hint.textContent = 'Format: 0x diikuti 40 karakter hex.';
       hint.className = 'field-hint';
       return false;
     }
@@ -417,7 +417,7 @@
       return true;
     } else {
       input.classList.add('invalid'); input.classList.remove('valid');
-      hint.textContent = '❌ Alamat tidak valid. Harus 0x + 30 karakter hex.';
+      hint.textContent = '❌ Alamat tidak valid. Harus 0x + 40 karakter hex.';
       hint.className = 'field-hint error';
       return false;
     }
