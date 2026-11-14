@@ -110,6 +110,22 @@
   <a class="wa-btn" href="https://wa.me/6285606065665?text=Halo%2C%20saya%20mau%20konsultasi%20USDT%20%2F%20USDA%2B" target="_blank">
     💬 KONSULTASI SEKARANG 
   </a>
+ <!-- Widget Harga USDT Live -->
+<div id="price-widget" style="background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; margin-bottom: 20px; text-align: center;">
+  <div style="font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Harga USDT Live</div>
+  <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 10px;">
+    <div>
+      <div style="font-size: 11px; color: var(--muted);">USD</div>
+      <div id="usdt-usd" style="font-size: 20px; font-weight: 800; color: var(--primary);">$--</div>
+    </div>
+    <div style="width: 1px; height: 40px; background: var(--border);"></div>
+    <div>
+      <div style="font-size: 11px; color: var(--muted);">IDR (Estimasi)</div>
+      <div id="usdt-idr" style="font-size: 20px; font-weight: 800; color: var(--text);">Rp --</div>
+    </div>
+  </div>
+  <div id="usdt-status" style="font-size: 10px; color: var(--muted); margin-top: 8px;">Memuat data...</div>
+</div>
 
   <h2>Pengumuman & Flyer</h2>
   <div class="gallery">
@@ -354,6 +370,38 @@
     }, 300);
   });
 </script>
+// ============ FETCH HARGA USDT LIVE ============
+async function fetchUSDTPrice() {
+  try {
+    // Ambil harga USDT ke USD dari Binance (tanpa API key)
+    const resUSD = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=USDTUSDT'); // Harga USDT dalam USDT (selalu 1)
+    const dataUSD = await resUSD.json();
 
+    // Ambil kurs USD ke IDR dari exchangerate.host (gratis)
+    const resIDR = await fetch('https://open.er-api.com/v6/latest/USD');
+    const dataIDR = await resIDR.json();
+    const kursIDR = dataIDR.rates.IDR;
+
+    if (dataUSD && dataUSD.price) {
+      const hargaUSD = parseFloat(dataUSD.price);
+      const hargaIDR = hargaUSD * kursIDR;
+
+      document.getElementById('usdt-usd').textContent = '$' + hargaUSD.toFixed(2);
+      document.getElementById('usdt-idr').textContent = 'Rp ' + Math.round(hargaIDR).toLocaleString('id-ID');
+      document.getElementById('usdt-status').textContent = 'Update: ' + new Date().toLocaleTimeString('id-ID');
+    } else {
+      throw new Error('Data tidak valid');
+    }
+  } catch (error) {
+    // Fallback: tampilkan angka statis jika API gagal
+    document.getElementById('usdt-usd').textContent = '$1.00';
+    document.getElementById('usdt-idr').textContent = 'Rp 16.500';
+    document.getElementById('usdt-status').textContent = 'Mode offline (gagal fetch API)';
+  }
+}
+
+// Panggil pertama kali, lalu ulangi setiap 60 detik
+fetchUSDTPrice();
+setInterval(fetchUSDTPrice, 60000);
 </body>
 </html>
