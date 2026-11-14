@@ -375,8 +375,10 @@
 async function fetchUSDTPrice() {
   try {
     // Ambil harga USDT ke USD dari Binance (tanpa API key)
-    const resUSD = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=USDTUSDT'); // Harga USDT dalam USDT (selalu 1)
-    const dataUSD = await resUSD.json();
+    // Ganti URL Binance dengan CORS Proxy
+const proxyUrl = 'https://corsproxy.io/?';
+const binanceUrl = 'https://api.binance.com/api/v3/ticker/price?symbol=USDTUSDT';
+const resUSD = await fetch(proxyUrl + encodeURIComponent(binanceUrl));
 
     // Ambil kurs USD ke IDR dari exchangerate.host (gratis)
     const resIDR = await fetch('https://open.er-api.com/v6/latest/USD');
