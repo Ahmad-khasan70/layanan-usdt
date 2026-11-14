@@ -380,32 +380,6 @@ const proxyUrl = 'https://corsproxy.io/?';
 const binanceUrl = 'https://api.binance.com/api/v3/ticker/price?symbol=USDTUSDT';
 const resUSD = await fetch(proxyUrl + encodeURIComponent(binanceUrl));
 
-    // Ambil kurs USD ke IDR dari exchangerate.host (gratis)
-    const resIDR = await fetch('https://open.er-api.com/v6/latest/USD');
-    const dataIDR = await resIDR.json();
-    const kursIDR = dataIDR.rates.IDR;
-
-    if (dataUSD && dataUSD.price) {
-      const hargaUSD = parseFloat(dataUSD.price);
-      const hargaIDR = hargaUSD * kursIDR;
-
-      document.getElementById('usdt-usd').textContent = '$' + hargaUSD.toFixed(2);
-      document.getElementById('usdt-idr').textContent = 'Rp ' + Math.round(hargaIDR).toLocaleString('id-ID');
-      document.getElementById('usdt-status').textContent = 'Update: ' + new Date().toLocaleTimeString('id-ID');
-    } else {
-      throw new Error('Data tidak valid');
-    }
-  } catch (error) {
-    // Fallback: tampilkan angka statis jika API gagal
-    document.getElementById('usdt-usd').textContent = '$1.00';
-    document.getElementById('usdt-idr').textContent = 'Rp 16.500';
-    document.getElementById('usdt-status').textContent = 'Mode offline (gagal fetch API)';
-  }
-}
-
-// Panggil pertama kali, lalu ulangi setiap 60 detik
-fetchUSDTPrice();
-setInterval(fetchUSDTPrice, 60000);
 </script>
 </body>
 </html>
